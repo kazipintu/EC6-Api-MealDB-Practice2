@@ -12,6 +12,7 @@ const searchFood = () => {
 
 
 document.getElementById("error").style.display = "none";
+const displayMealDiv = document.getElementById('single-meal');
 const displayMeals = (foods) => {
 
   const displayFood = document.getElementById('display-meals');
@@ -19,6 +20,7 @@ const displayMeals = (foods) => {
 
   if (foods == null) {
     document.getElementById("error").style.display = "block";
+    displayMealDiv.textContent = "";
   }
   else {
     document.getElementById("error").style.display = "none";
