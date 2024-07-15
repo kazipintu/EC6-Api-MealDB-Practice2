@@ -9,16 +9,25 @@ const searchFood = () => {
     .then(data => displayMeals(data.meals))
 }
 
+
+
+document.getElementById("error").style.display = "none";
 const displayMeals = (foods) => {
 
   const displayFood = document.getElementById('display-meals');
+  displayFood.textContent = '';
 
-  foods.forEach(food => {
+  if (foods == null) {
+    document.getElementById("error").style.display = "block";
+  }
+  else {
+    document.getElementById("error").style.display = "none";
+    foods.forEach(food => {
 
-    const displayDiv = document.createElement('div');
-    displayDiv.classList.add("col")
+      const displayDiv = document.createElement('div');
+      displayDiv.classList.add("col")
 
-    displayDiv.innerHTML = `
+      displayDiv.innerHTML = `
       <div onclick="loadSingleMeal(${food.idMeal})" class="card">
         <img src="${food.strMealThumb}" class="..." alt="...">
         <div class="card-body">
@@ -29,10 +38,12 @@ const displayMeals = (foods) => {
       </div>
 
 `
-    displayFood.appendChild(displayDiv)
-  })
+      displayFood.appendChild(displayDiv)
+    })
+  }
 
 }
+
 
 const loadSingleMeal = (idRecipe) => {
   //console.log(idRecipe);
@@ -43,6 +54,8 @@ const loadSingleMeal = (idRecipe) => {
     .then(data => displaySingleMeal(data.meals[0]))
 }
 
+
+document.getElementById("error").style.display = "none";
 const displaySingleMeal = (recipe) => {
   //console.log(recipe);
 
