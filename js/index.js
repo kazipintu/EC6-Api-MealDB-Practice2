@@ -10,7 +10,6 @@ const searchFood = () => {
 }
 
 
-
 document.getElementById("error").style.display = "none";
 const displayMealDiv = document.getElementById('single-meal');
 const displayMeals = (foods) => {
