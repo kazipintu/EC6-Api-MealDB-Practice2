@@ -1,5 +1,4 @@
 //console.log('connected');
-
 const searchFood = () => {
   const searchInput = document.getElementById("search-input");
   const serachInputValue = searchInput.value;
